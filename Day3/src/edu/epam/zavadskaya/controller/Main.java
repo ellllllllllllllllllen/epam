@@ -3,7 +3,10 @@ package edu.epam.zavadskaya.controller;
 import edu.epam.zavadskaya.entity.Ball;
 import edu.epam.zavadskaya.entity.Basket;
 import edu.epam.zavadskaya.entity.Color;
+import edu.epam.zavadskaya.service.BasketService;
 import edu.epam.zavadskaya.view.Printer;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +23,9 @@ public class Main {
         basket.add(blueBall);
         basket.add(yellowBall);
 
-        Printer.print("Number of blue balls: " + basket.getColorCount(Color.BLUE));
-        Printer.print("\nTotal weight: " + basket.getWeight());
+        ArrayList<Ball> balls = basket.getBalls();
+
+        Printer.print("Number of blue balls: " + BasketService.getColorCount(Color.BLUE, balls));
+        Printer.print("\nTotal weight: " + BasketService.getWeight(balls));
     }
 }

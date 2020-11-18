@@ -1,9 +1,10 @@
 package edu.epam.zavadskaya.entity;
 
+import edu.epam.zavadskaya.service.BasketService;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import java.util.ArrayList;
 
 public class BasketTest {
 
@@ -14,28 +15,50 @@ public class BasketTest {
     Ball greenBall = new Ball(0.6, Color.GREEN);
     Ball yellowBall = new Ball(0.2, Color.YELLOW);
 
+    Basket basket = new Basket();
+    ArrayList<Ball> balls = basket.getBalls();
+
     @Test
-    public void testAdd() {
-        Basket basket = new Basket();
+    public void testGetColorCountAdd() {
+        int numberOfBlueBalls = BasketService.getColorCount(Color.BLUE, balls);
         basket.add(blackBall);
         basket.add(blueBall);
         basket.add(blueBall);
         basket.add(yellowBall);
-        Assert.assertEquals(2, basket.getColorCount(Color.BLUE));
-        Assert.assertEquals(1.5, basket.getWeight());
+        Assert.assertEquals(2, numberOfBlueBalls);
     }
 
     @Test
-    public void testRemove() {
-        Basket basket = new Basket();
+    public void testGetWeightAdd() {
+        double weight = BasketService.getWeight(balls);
+        basket.add(blackBall);
+        basket.add(blueBall);
+        basket.add(blueBall);
+        basket.add(yellowBall);
+        Assert.assertEquals(1.5, weight);
+    }
+
+    @Test
+    public void testGetColorCountRemove() {
+        int numberOfRedBalls = BasketService.getColorCount(Color.RED, balls);
         basket.add(blackBall);
         basket.add(blueBall);
         basket.add(blueBall);
         basket.add(yellowBall);
         basket.add(redBall);
         basket.remove(redBall);
-        Assert.assertEquals(0, basket.getColorCount(Color.RED));
-        Assert.assertEquals(1.5, basket.getWeight());
+        Assert.assertEquals(0, numberOfRedBalls);
     }
 
+    @Test
+    public void testGetWeightRemove() {
+        double weight = BasketService.getWeight(balls);
+        basket.add(blackBall);
+        basket.add(blueBall);
+        basket.add(blueBall);
+        basket.add(yellowBall);
+        basket.add(redBall);
+        basket.remove(redBall);
+        Assert.assertEquals(1.5, weight);
+    }
 }
