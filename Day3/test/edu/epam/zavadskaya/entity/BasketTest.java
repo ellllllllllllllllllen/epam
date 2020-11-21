@@ -19,7 +19,7 @@ public class BasketTest {
     ArrayList<Ball> balls = basket.getBalls();
 
     @Test
-    public void testGetColorCountAdd() {
+    public void testGetColorCountAfterAdd() {
         int numberOfBlueBalls = BasketService.getColorCount(Color.BLUE, balls);
         basket.add(blackBall);
         basket.add(blueBall);
@@ -29,7 +29,7 @@ public class BasketTest {
     }
 
     @Test
-    public void testGetWeightAdd() {
+    public void testGetWeightAfterAdd() {
         double weight = BasketService.getWeight(balls);
         basket.add(blackBall);
         basket.add(blueBall);
@@ -39,7 +39,7 @@ public class BasketTest {
     }
 
     @Test
-    public void testGetColorCountRemove() {
+    public void testGetColorCountAfterRemove() {
         int numberOfRedBalls = BasketService.getColorCount(Color.RED, balls);
         basket.add(blackBall);
         basket.add(blueBall);
@@ -51,7 +51,7 @@ public class BasketTest {
     }
 
     @Test
-    public void testGetWeightRemove() {
+    public void testGetWeightAfterRemove() {
         double weight = BasketService.getWeight(balls);
         basket.add(blackBall);
         basket.add(blueBall);

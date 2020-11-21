@@ -7,13 +7,12 @@ import java.util.ArrayList;
 
 public class BasketService {
 
-    public static int getColorCount(Color color, ArrayList<Ball> balls)
-    {
+    public static int getColorCount(Color color, ArrayList<Ball> balls) {
         int numOfBalls = 0;
-        for (Ball ball: balls)
-        {
-            if (ball.getColor() == color)
+        for (Ball ball: balls) {
+            if (ball.getColor() == color) {
                 numOfBalls++;
+            }
         }
         return numOfBalls;
     }
