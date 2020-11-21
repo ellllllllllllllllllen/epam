@@ -1,12 +1,14 @@
-package edu.epam.zavadskaya.entity;
+package edu.epam.zavadskaya.service;
 
-import edu.epam.zavadskaya.service.BasketService;
+import edu.epam.zavadskaya.entity.Ball;
+import edu.epam.zavadskaya.entity.Basket;
+import edu.epam.zavadskaya.entity.Color;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
-public class BasketTest {
+public class BasketServiceTest {
 
     Ball blackBall = new Ball(0.5, Color.BLACK);
     Ball whiteBall = new Ball(0.3, Color.WHITE);
